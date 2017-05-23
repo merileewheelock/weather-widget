@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas Practice</title>
+
+	<style type="text/css" media="screen">
+
+		canvas{
+			border: 5px solid black;
+		}
+		
+	</style>
+</head>
+<body>
+
+	<canvas id="canvas" height="500px" width="500px"></canvas>
+
+	<script type="text/javascript">
+		
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+
+		// // make the pen red
+		// context.strokeStyle = "#ff0000";
+		// // make the line 10px wide
+		// context.lineWidth = 10;
+		// context.lineTo(200,100);
+		// context.lineTo(200,200);
+		// context.lineTo(300,100);
+		// context.lineTo(300,150);
+		// context.lineTo(200,200);
+		// // fill the line in
+		// context.stroke();
+		// context.closePath();
+
+		// context.arc(50,50,75,0*Math.PI,2*Math.PI)
+		// // context.arc(center at 50,50; radius at 75; start and end locations)
+		// context.fillStyle = "0000ff";
+		// context.fill();
+
+		function Ball(x,y,radius,r,b,g){
+			this.x = x;
+			this.y = y;
+			this.radius = radius;
+			this.r = r;
+			this.g = g;
+			this.b = b;
+			this.startArc = 0;
+			this.endArc = Math.PI * 2; //2*pi creates a full circle
+			this.xDirection = 1;
+			this.yDirection = 1;
+		}
+
+		Ball.prototype.updateBall = function(){
+			// cover the right
+			if (this.x >= 500 - this.radius){
+				this.xDirection = -1;
+			//cover the left
+			}else if (this.x <= 0 + this.radius){
+				this.xDirection = 1;
+			}
+			// cover the bottom
+			if (this.y >= 500 - this.radius){
+				this.yDirection = -1;
+			// cover the top
+			}else if (this.y <= 0 + this.radius){
+				this.yDirection = 1;
+			}
+			this.x += this.xDirection;
+			this.y += this.yDirection;
+		}
+
+		Ball.prototype.draw = function(){
+			context.fillStyle = '#'+this.r+this.g+this.b;
+			// start a new drawing
+			context.beginPath();
+			context.arc(this.x,this.y,this.radius,this.startArc,this.endArc);
+			context.fill();
+		}
+
+		function run(){
+			context.clearRect(0,0,500,500);
+			for (let i = 0; i < balls.length; i++){
+				balls[i].updateBall();
+				balls[i].draw();
+			}
+			
+			requestAnimationFrame(run);
+			// this is a recursive function, but JS will manage this recursion
+		}
+		var balls = [];
+		// var ball = new Ball(150,150,75,0,0,99);
+		balls.push(new Ball(150,150,75,10,10,99));
+		balls.push(new Ball(250,350,75,10,99,99));
+		run();
+		
+
+	</script>
+
+</body>
+</html>
