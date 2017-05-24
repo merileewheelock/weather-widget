@@ -42,12 +42,12 @@ $(document).ready(function(){
 	var currentPercent = 0;
 
 	function animateCircle(currentArc, currentTemp){
-		context.clearRect(0,0,500,500);
+		context.clearRect(0,0,400,400);
 		// console.log(currentArc);
 		// draw inner circle
 		context.fillStyle = "#ccc";
 		context.beginPath();
-		context.arc(250,250,150,Math.PI*0,Math.PI*2);
+		context.arc(200,200,150,Math.PI*0,Math.PI*2);
 		context.closePath();
 		context.fill();
 
@@ -56,7 +56,7 @@ $(document).ready(function(){
 		context.lineWidth = 10;
 		// context.strokeStyle = "red";
 		context.beginPath();
-		context.arc(250,250,155,Math.PI*1.5,(Math.PI * 2 * currentArc) + Math.PI*1.5);
+		context.arc(200,200,155,Math.PI*1.5,(Math.PI * 2 * currentArc) + Math.PI*1.5);
 		//Math.PI starts at 3 o'clock; 1.5*Math.PI starts at 12 o'clock
 		context.stroke();
 		// update the current percentage
@@ -76,7 +76,7 @@ $(document).ready(function(){
 			context.font = "72px Khula";
 			context.fillStyle = "darkblue";
 			context.textBaseline = "top";
-			context.fillText(currentTemp+String.fromCharCode(176)+'F',190,210);
+			context.fillText(currentTemp+String.fromCharCode(176)+'F',140,160);
 		}
 
 		if (currentPercent < currentTemp){
