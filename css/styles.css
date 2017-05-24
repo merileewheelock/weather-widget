@@ -14,3 +14,8 @@ h1{
 	font-family: 'Khula', sans-serif;
 	font-size: 60px;
 }
+
+#temp-info{
+	margin-top: 100px;
+	font-size: 26px;
+}
