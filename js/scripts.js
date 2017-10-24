@@ -81,7 +81,9 @@ $(document).ready(function(){
 
 		if (currentPercent < currentTemp){
 			requestAnimationFrame(function(){
-				animateCircle(currentPercent/100, currentTemp); // this will actually run the function. animateCircle without the () would run what the function returns
+				animateCircle(currentPercent/100, currentTemp);
+				// this will actually run the function
+				// animateCircle without the () would run what the function returns
 			});
 		}
 	}
