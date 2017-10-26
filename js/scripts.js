@@ -21,9 +21,9 @@ $(document).ready(function(){
 			var minTemp = Math.floor(weatherData.main.temp_min);
 			
 
-			$(".currTempText").html('curr temp: '+currTemp+'&deg;F');
-			$(".maxTempText").html('max temp: '+maxTemp+'&deg;F');
-			$(".minTempText").html('min temp: '+minTemp+'&deg;F');
+			$(".currTempText").html('current: '+currTemp+'&deg;F');
+			$(".maxTempText").html('max: '+maxTemp+'&deg;F');
+			$(".minTempText").html('min: '+minTemp+'&deg;F');
 			
 			// newHTML += '<div>The temp in ' + name + ' is currently ' + currTemp + '&deg;</div>';
 			var name = weatherData.name;
